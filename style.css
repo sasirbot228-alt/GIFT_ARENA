@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #100d1c;
+    color: white;
+    font-family: Arial, sans-serif;
+    padding: 18px;
+    padding-bottom: 100px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #a879ff;
+}
+
+.balance {
+    background: #29203f;
+    border: 1px solid #7549b9;
+    padding: 10px 14px;
+    border-radius: 14px;
+    font-weight: bold;
+}
+
+.welcome h1 {
+    font-size: 27px;
+    margin-bottom: 8px;
+}
+
+.welcome > p {
+    color: #a99dbb;
+    font-size: 14px;
+}
+
+.hero {
+    margin-top: 22px;
+    padding: 25px 15px;
+    text-align: center;
+    border-radius: 22px;
+    background: linear-gradient(135deg, #48218b, #20143d, #32165c);
+    border: 1px solid #8050c9;
+    box-shadow: 0 0 25px #733ac533;
+}
+
+.gift {
+    font-size: 65px;
+    margin-bottom: 12px;
+}
+
+.hero h2 {
+    font-size: 21px;
+    margin-bottom: 8px;
+}
+
+.hero p {
+    color: #d1c1ed;
+    font-size: 13px;
+}
+
+.section-title {
+    margin: 28px 0 16px;
+    font-size: 21px;
+}
+
+.games {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 13px;
+}
+
+.game-card {
+    min-height: 145px;
+    border: 1px solid #493663;
+    border-radius: 18px;
+    padding: 15px;
+    color: white;
+    text-align: left;
+    background: #201a30;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.game-card:active {
+    transform: scale(0.96);
+}
+
+.game-card span {
+    font-size: 35px;
+}
+
+.game-card h3 {
+    margin: 12px 0 6px;
+    font-size: 17px;
+}
+
+.game-card p {
+    font-size: 11px;
+    color: #b5a9c9;
+}
+
+.upgrade {
+    background: linear-gradient(145deg, #42235f, #21172f);
+}
+
+.storm {
+    background: linear-gradient(145deg, #203e65, #21172f);
+}
+
+.cases {
+    background: linear-gradient(145deg, #654322, #21172f);
+}
+
+.rating {
+    background: linear-gradient(145deg, #533a75, #21172f);
+}
+
+.bottom-menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 13px 5px 20px;
+    background: #1b1528;
+    border-top: 1px solid #493663;
+}
+
+.bottom-menu button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 21px;
+    cursor: pointer;
+}
+
+.bottom-menu small {
+    display: block;
+    font-size: 10px;
+    color: #b9a9d2;
+    margin-top: 5px;
+}

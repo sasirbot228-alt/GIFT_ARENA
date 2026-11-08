@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIFT ARENA</title>
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">🎁 GIFT <span>ARENA</span></div>
+        <div class="balance">🪙 <span id="balance">1000</span></div>
+    </header>
+
+    <section class="welcome">
+        <h1>Добро пожаловать!</h1>
+        <p>Играй, побеждай и собирай подарки!</p>
+        <div class="hero">
+            <div class="gift">🎁</div>
+            <h2>Твоя арена ждёт!</h2>
+            <p>Стань лучшим игроком GIFT ARENA</p>
+        </div>
+    </section>
+
+    <h2 class="section-title">🎮 Игры</h2>
+
+    <section class="games">
+        <button class="game-card upgrade" onclick="openGame('upgrade')">
+            <span>⚔️</span>
+            <h3>Апгрейд</h3>
+            <p>Улучши свои награды</p>
+        </button>
+
+        <button class="game-card storm" onclick="openGame('storm')">
+            <span>💎</span>
+            <h3>Шторм</h3>
+            <p>Испытай удачу</p>
+        </button>
+
+        <button class="game-card cases" onclick="openGame('cases')">
+            <span>🎁</span>
+            <h3>Кейсы</h3>
+            <p>Открывай коллекции</p>
+        </button>
+
+        <button class="game-card rating" onclick="openGame('rating')">
+            <span>🏆</span>
+            <h3>Рейтинг</h3>
+            <p>Соревнуйся с игроками</p>
+        </button>
+    </section>
+
+    <nav class="bottom-menu">
+        <button onclick="showPage('games')">🎮<small>Игры</small></button>
+        <button onclick="showPage('cases')">🎁<small>Кейсы</small></button>
+        <button onclick="showPage('bonus')">💰<small>Бонусы</small></button>
+        <button onclick="showPage('profile')">👤<small>Профиль</small></button>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
