@@ -1,35 +1,84 @@
-const tg = window.Telegram.WebApp;
+const tg = window.Telegram?.WebApp;
 
-tg.ready();
-tg.expand();
-
-let balance = 1000;
-
-function updateBalance() {
-    document.getElementById("balance").textContent =
-        balance.toLocaleString("ru-RU");
+if (tg) {
+  tg.ready();
+  tg.expand();
 }
 
-function openGame(game) {
-    const games = {
-        upgrade: "⚔️ Апгрейд",
-        storm: "💎 Шторм",
-        cases: "🎁 Кейсы",
-        rating: "🏆 Рейтинг"
-    };
+const toast = document.getElementById('toast');
 
-    tg.showAlert("Раздел " + games[game] + " скоро появится!");
+let toastTimer;
+
+function notify(message) {
+  toast.textContent = message;
+  toast.classList.add('show');
+
+  clearTimeout(toastTimer);
+
+  toastTimer = setTimeout(() => {
+    toast.classList.remove('show');
+  }, 2200);
 }
 
-function showPage(page) {
-    const pages = {
-        games: "🎮 Игры",
-        cases: "🎁 Кейсы",
-        bonus: "💰 Бонусы",
-        profile: "👤 Профиль"
-    };
+// Навигация по разделам
+document.querySelectorAll('[data-tab]').forEach(button => {
+  button.addEventListener('click', () => {
+    const tab = button.dataset.tab;
 
-    tg.showAlert("Раздел " + pages[page] + " скоро появится!");
-}
+    document.querySelectorAll('.nav-item').forEach(item => {
+      item.classList.toggle(
+        'active',
+        item.dataset.tab === tab
+      );
+    });
 
-updateBalance();
+    const target =
+      tab === 'cases'
+        ? document.getElementById('cases')
+        : tab === 'games'
+        ? document.getElementById('games')
+        : null;
+
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      });
+    } else {
+      notify(
+        tab === 'earn'
+          ? 'Раздел заданий скоро появится'
+          : 'Раздел бонусов скоро появится'
+      );
+    }
+  });
+});
+
+// Игры
+document.querySelectorAll('[data-game]').forEach(button => {
+  button.addEventListener('click', () => {
+    if (button.dataset.game === 'upgrade') {
+      notify('Апгрейд скоро станет доступен');
+    } else {
+      notify('Шторм скоро станет доступен');
+    }
+  });
+});
+
+// Кейсы
+document.querySelectorAll('[data-case]').forEach(button => {
+  button.addEventListener('click', () => {
+    if (button.dataset.case === 'daily') {
+      notify('Ежедневная коллекция скоро появится');
+    } else {
+      notify('Коллекция неон-кейса скоро появится');
+    }
+  });
+});
+
+// Профиль
+document
+  .getElementById('profileBtn')
+  .addEventListener('click', () => {
+    notify('Профиль скоро появится');
+  });
