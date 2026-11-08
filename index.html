@@ -1,65 +1,87 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GIFT ARENA</title>
-
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#171a30">
+  <title>GIFT ARENA</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
-
-    <header class="header">
-        <div class="logo">🎁 GIFT <span>ARENA</span></div>
-        <div class="balance">🪙 <span id="balance">1000</span></div>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="GIFT ARENA"><span>GIFT</span><b>ARENA</b></a>
+      <div class="top-actions">
+        <div class="balance"><span class="coin">✦</span><span id="balance">1 000</span><span class="chevron">⌄</span></div>
+        <button class="avatar" id="profileBtn" aria-label="Профиль">👤</button>
+      </div>
     </header>
 
-    <section class="welcome">
-        <h1>Добро пожаловать!</h1>
-        <p>Играй, побеждай и собирай подарки!</p>
-        <div class="hero">
-            <div class="gift">🎁</div>
-            <h2>Твоя арена ждёт!</h2>
-            <p>Стань лучшим игроком GIFT ARENA</p>
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">ТВОЯ ИГРОВАЯ АРЕНА</span>
+          <h1>Играй.<br><em>Собирай.</em><br>Побеждай.</h1>
+          <p>Открывай коллекции и прокачивай свой игровой профиль.</p>
+          <button class="primary-btn" data-tab="games">Войти в игру <span>›</span></button>
         </div>
-    </section>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orb orb-one"></div><div class="orb orb-two"></div>
+          <div class="gift-box"><div class="gift-lid"></div><div class="gift-ribbon"></div><div class="gift-bow">✧</div></div>
+          <div class="spark s1">✦</div><div class="spark s2">✧</div><div class="spark s3">✦</div>
+        </div>
+      </section>
 
-    <h2 class="section-title">🎮 Игры</h2>
-
-    <section class="games">
-        <button class="game-card upgrade" onclick="openGame('upgrade')">
-            <span>⚔️</span>
-            <h3>Апгрейд</h3>
-            <p>Улучши свои награды</p>
+      <section class="section-head">
+        <div><span class="eyebrow">GIFT ARENA</span><h2>Игры</h2></div>
+        <button class="text-btn" data-tab="games">Все игры <span>›</span></button>
+      </section>
+      <section class="game-grid" id="games">
+        <button class="game-card upgrade" data-game="upgrade">
+          <span class="players"><i></i> Тренировка</span>
+          <span class="game-icon">⚔️</span>
+          <strong>Апгрейд</strong><small>Прокачай коллекцию</small>
         </button>
-
-        <button class="game-card storm" onclick="openGame('storm')">
-            <span>💎</span>
-            <h3>Шторм</h3>
-            <p>Испытай удачу</p>
+        <button class="game-card storm" data-game="storm">
+          <span class="players"><i></i> Аркада</span>
+          <span class="game-icon">💎</span>
+          <strong>Шторм</strong><small>Проверь реакцию</small>
         </button>
+      </section>
 
-        <button class="game-card cases" onclick="openGame('cases')">
-            <span>🎁</span>
-            <h3>Кейсы</h3>
-            <p>Открывай коллекции</p>
-        </button>
+      <section class="section-head compact">
+        <div><span class="eyebrow">ТВОЯ КОЛЛЕКЦИЯ</span><h2>Кейсы</h2></div>
+        <button class="text-btn" data-tab="cases">Смотреть все <span>›</span></button>
+      </section>
+      <section class="case-grid" id="cases">
+        <article class="case-card">
+          <div class="case-art free-art">🎁<span>✦</span></div>
+          <div class="case-info"><strong>Подарок дня</strong><small>Бесплатная коллекция</small></div>
+          <button class="small-btn" data-case="daily">Открыть</button>
+        </article>
+        <article class="case-card">
+          <div class="case-art neon-art">🦩<span>✧</span></div>
+          <div class="case-info"><strong>Неон-кейс</strong><small>Тематическая коллекция</small></div>
+          <button class="small-btn" data-case="neon">Посмотреть</button>
+        </article>
+      </section>
 
-        <button class="game-card rating" onclick="openGame('rating')">
-            <span>🏆</span>
-            <h3>Рейтинг</h3>
-            <p>Соревнуйся с игроками</p>
-        </button>
-    </section>
+      <section class="bonus-banner">
+        <div><span class="eyebrow">БОНУСЫ GIFT ARENA</span><h2>Каждый день —<br>новая возможность</h2><p>Заходи, собирай отметки и украшай профиль.</p></div>
+        <div class="bonus-star">✦</div>
+      </section>
+    </main>
 
-    <nav class="bottom-menu">
-        <button onclick="showPage('games')">🎮<small>Игры</small></button>
-        <button onclick="showPage('cases')">🎁<small>Кейсы</small></button>
-        <button onclick="showPage('bonus')">💰<small>Бонусы</small></button>
-        <button onclick="showPage('profile')">👤<small>Профиль</small></button>
+    <nav class="bottom-nav" aria-label="Основная навигация">
+      <button class="nav-item active" data-tab="games"><span>⌂</span>Игры</button>
+      <button class="nav-item" data-tab="cases"><span>▣</span>Кейсы</button>
+      <button class="nav-item" data-tab="earn"><span>✧</span>Задания</button>
+      <button class="nav-item" data-tab="bonuses"><span>♧</span>Бонусы</button>
     </nav>
+  </div>
 
-    <script src="script.js"></script>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
 </body>
 </html>
